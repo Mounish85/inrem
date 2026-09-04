@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-canvas: #F8F4E8;
+    --color-primary: #09090B;
+    --color-accent: #D2E823;
+  }
+
+  body {
+    background-color: #F8F4E8;
+    color: #09090B;
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: 'Dela Gothic One', cursive, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Hard Neo-Brutalist Shadows */
+.brutal-shadow {
+  box-shadow: 4px 4px 0 #09090B;
+}
+
+.brutal-shadow-sm {
+  box-shadow: 2px 2px 0 #09090B;
+}
+
+.brutal-shadow-lg {
+  box-shadow: 6px 6px 0 #09090B;
+}
+
+.brutal-shadow-xl {
+  box-shadow: 8px 8px 0 #09090B;
+}
+
+.brutal-btn {
+  transition: all 0.1s ease-in-out;
+}
+
+.brutal-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #09090B;
+}
+
+.brutal-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #09090B;
+}
+
+/* Glitch hover effect */
+@keyframes text-glitch {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0, 0); }
+}
+
+.glitch-hover:hover {
+  animation: text-glitch 0.3s ease infinite;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  mix-blend-mode: difference;
+  transition: transform 0.15s ease-out, width 0.2s ease, height 0.2s ease;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor.cursor-hover {
+  transform: translate(-50%, -50%) scale(2.5);
+}
+
+@media (pointer: coarse), (max-width: 768px) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+/* Global SVG Noise Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99990;
+  opacity: 0.03;
+}
